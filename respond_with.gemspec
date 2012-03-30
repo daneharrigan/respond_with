@@ -4,9 +4,9 @@ require File.expand_path('../lib/respond_with/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["Dane Harrigan"]
   gem.email         = ["dane.harrigan@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Make API responses hella simple}
+  gem.summary       = %q{Make API responses hella simple}
+  gem.homepage      = "https://github.com/daneharrigan/respond_with"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
