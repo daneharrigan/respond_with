@@ -5,19 +5,21 @@ make API responses dead simple.
 
 ## Installation
 
-`respond_with` relies on the serialize gem which is private at the
-moment. Make sure to add it to your Gemfile until its released.
+`respond_with` relies on the serialize gem which is still in development
+so you'll need to install that from git.
 
 Add these lines to your application's Gemfile:
 
-    gem 'respond_with', :git => 'git@github.com:heroku/respond_with.git'
-    gem 'serialize',    :git => 'git@github.com:heroku/serialize.git'
+    gem 'respond_with', :git => 'git://github.com/daneharrigan/respond_with.git'
+    gem 'serialize',    :git => 'git://github.com/daneharrigan/serialize.git'
 
 And then execute:
 
     $ bundle
 
 ## Usage
+    require "sinatra"
+    require "respond_with"
 
     # in a sinatra app
     get "/resources/:id.?:format?" do
