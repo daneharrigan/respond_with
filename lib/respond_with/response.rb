@@ -41,12 +41,5 @@ module RespondWith
     end
 
     private :request_types
-
-    def self.priorities
-      @priorities ||= [
-        MIME::Types["application/json"],
-        MIME::Types["application/xml"]
-      ].flatten
-    end
   end
 end
