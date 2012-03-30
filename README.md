@@ -1,30 +1,32 @@
-    respond_with(@collection) # determine what ways i can respond
-                              # what the request is asking for
-                              # what the best response would be
-                              # set content type
-                              # return response string
-
 # RespondWith
 
-TODO: Write a gem description
+The `respond_with` gem is an extension of Sinatra. It is intended to
+make API responses dead simple.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+`respond_with` relies on the serialize gem which is private at the
+moment. Make sure to add it to your Gemfile until its released.
 
-    gem 'respond_with'
+Add these lines to your application's Gemfile:
+
+    gem 'respond_with', :git => 'git@github.com:heroku/respond_with.git'
+    gem 'serialize',    :git => 'git@github.com:heroku/serialize.git'
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install respond_with
-
 ## Usage
 
-TODO: Write usage instructions here
+    # in a sinatra app
+    get "/resources/:id.?:format?" do
+      @resource = Resource.find(params[:id])
+      respond_with ResourceSerializer.new(@resource)
+    end
+
+Notice we're using a `ResourceSerializer`. This is built with the
+[serialize][1] gem.
 
 ## Contributing
 
@@ -33,3 +35,5 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Added some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+[1]: https://github.com/heroku/serialize
