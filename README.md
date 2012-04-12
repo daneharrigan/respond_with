@@ -1,4 +1,4 @@
-# RespondWith
+# RespondWith [![Test Status](https://secure.travis-ci.org/daneharrigan/respond_with.png)][2]
 
 The `respond_with` gem is an extension of Sinatra. It is intended to
 make API responses dead simple.
@@ -39,3 +39,4 @@ Notice we're using a `ResourceSerializer`. This is built with the
 5. Create new Pull Request
 
 [1]: https://github.com/heroku/serialize
+[2]: https://secure.travis-ci.org/daneharrigan/respond_with
