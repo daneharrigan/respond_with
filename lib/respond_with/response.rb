@@ -6,10 +6,10 @@ module RespondWith
     attr :request
 
     def initialize(options={})
-      @app      = options[:app]
-      @params   = options[:params]
-      @object   = options[:object]
-      @request  = options[:request]
+      @app     = options[:app]
+      @params  = options[:params]
+      @object  = options[:object]
+      @request = options[:request]
     end
 
     def render
@@ -27,10 +27,7 @@ module RespondWith
 
     def request_types
       format = params.delete "format"
-      content_type = case format
-        when "json" then "application/json"
-        when "xml"  then "application/xml"
-      end
+      content_type = MIME::Types.type_for(format).first.to_s if format
 
       unless request.accept.first == content_type
         request.accept.delete content_type

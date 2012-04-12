@@ -63,7 +63,11 @@ class RespondWithTest < MiniTest::Unit::TestCase
 end
 
 class MyApp < Sinatra::Base
-  get "/item.?:format?" do
+  get "/item" do
+    respond_with ItemSerializer.new(MockItem.new)
+  end
+
+  get "/item.:format" do
     respond_with ItemSerializer.new(MockItem.new)
   end
 end

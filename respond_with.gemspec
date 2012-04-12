@@ -16,4 +16,5 @@ Gem::Specification.new do |gem|
   gem.version       = RespondWith::VERSION
   gem.add_runtime_dependency "sinatra"
   gem.add_runtime_dependency "negotiator"
+  gem.add_runtime_dependency "mime-types"
 end
