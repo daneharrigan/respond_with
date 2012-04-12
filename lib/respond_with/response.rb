@@ -14,8 +14,8 @@ module RespondWith
 
     def render
       response_rating    = @object.responses.map { |response| [response, 1.0] }
-      available_respones = Hash[response_rating]
-      response_type = Negotiator.pick(request_types.join(", "), available_respones)
+      available_responses = Hash[response_rating]
+      response_type = Negotiator.pick(request_types.join(", "), available_responses)
 
       if response_type.nil?
         @app.halt 406
