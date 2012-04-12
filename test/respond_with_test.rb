@@ -37,6 +37,14 @@ class RespondWithTest < MiniTest::Unit::TestCase
   end
 
   # XML
+  def test_request_with_xml_and_json_accept_header
+    header "Accept", "application/xml, applicaiton/json"
+    get "/item"
+    xml = @item_hash.to_xml(root: "mock-item")
+
+    assert_equal xml, last_response.body
+  end
+
   def test_request_with_xml_extension
     get "/item.xml"
     xml = @item_hash.to_xml(root: "mock-item")
