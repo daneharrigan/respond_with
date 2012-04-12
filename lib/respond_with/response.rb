@@ -34,7 +34,7 @@ module RespondWith
         request.accept.unshift content_type
       end
 
-      return request.accept
+      return request.accept.compact
     end
 
     private :request_types
