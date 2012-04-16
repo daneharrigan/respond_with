@@ -27,7 +27,7 @@ module RespondWith
       format = params.delete "format"
       content_type = MIME::Types.type_for(format).first.to_s if format
 
-      unless content_type.nil? && request.accept.first == content_type
+      if content_type && request.accept.first != content_type
         request.accept.delete content_type
         request.accept.unshift content_type
       end
@@ -39,10 +39,17 @@ module RespondWith
 
     def available_responses
       responses = request_types.map do |request_type|
-        if @object.responses.include? request_type
+        if @object.responses.include?(request_type)
           [request_type, 1.0]
         end
       end.compact
+
+      if request_types.include? "*/*"
+        @object.responses.each do |response_type|
+          response_rating = [response_type, 1.0]
+          responses << response_rating unless responses.include? response_rating
+        end
+      end
 
       Hash[responses]
     end
