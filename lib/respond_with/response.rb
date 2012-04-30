@@ -31,6 +31,7 @@ module RespondWith
         request.accept.delete content_type
         request.accept.unshift content_type
       end
+      request.accept << "*/*" if request.accept.empty?
 
       return request.accept
     end

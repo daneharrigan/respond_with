@@ -18,6 +18,12 @@ class RespondWithTest < MiniTest::Unit::TestCase
     assert_equal 406, last_response.status
   end
 
+  def test_request_with_no_accept_header
+    get "/item"
+    assert_equal @item_hash.to_json, last_response.body
+    assert_equal 200, last_response.status
+  end
+
   # JSON
   def test_request_with_json_extension
     get "/item.json"
