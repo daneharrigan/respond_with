@@ -3,6 +3,6 @@ rvm:
   - 1.9.2
   - 1.9.3
   - rbx-19mode
-  #- ruby-head
   #- jruby-19mode
+  #- ruby-head
 script: "ruby -Itest:lib test/all.rb"

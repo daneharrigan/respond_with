@@ -17,5 +17,5 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency "sinatra"
   gem.add_runtime_dependency "negotiator"
   gem.add_runtime_dependency "mime-types"
-  gem.add_runtime_dependency "serialize"
+  gem.add_runtime_dependency "serialize", "~> 1.0.0"
 end
