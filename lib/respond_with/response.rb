@@ -5,11 +5,12 @@ module RespondWith
     attr :object
     attr :request
 
-    def initialize(options={})
-      @app     = options[:app]
-      @params  = options[:params]
-      @object  = options[:object]
-      @request = options[:request]
+    def initialize(opts={})
+      @app     = opts[:app]
+      @params  = opts[:params]
+      @object  = opts[:object]
+      @request = opts[:request]
+      @options = opts[:options]
     end
 
     def render
@@ -18,6 +19,7 @@ module RespondWith
       if response_type.nil?
         @app.halt 406
       else
+        @app.status(@options[:status]) if @options[:status]
         @app.content_type(response_type)
         @object.to(response_type)
       end

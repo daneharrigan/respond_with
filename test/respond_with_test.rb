@@ -2,7 +2,6 @@ require "test_helper"
 
 class RespondWithTest < MiniTest::Unit::TestCase
   include Rack::Test::Methods
-
   def setup
     @item_hash = { name: "Item", type: "Sample", size: 42 }
   end
@@ -71,6 +70,11 @@ class RespondWithTest < MiniTest::Unit::TestCase
     assert_equal "application/xml;charset=utf-8", last_response.content_type
   end
 
+  def test_response_code
+    get "/response-code"
+    assert_equal 202, last_response.status
+  end
+
   def app
     MyApp
   end
@@ -83,5 +87,9 @@ class MyApp < Sinatra::Base
 
   get "/item.:format" do
     respond_with ItemSerializer.new(MockItem.new)
+  end
+
+  get "/response-code" do
+    respond_with ItemSerializer.new(MockItem.new), status: 202
   end
 end

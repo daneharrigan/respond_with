@@ -4,6 +4,7 @@ require "rack/test"
 
 require "respond_with"
 require "serialize"
+require "serialize/xml"
 
 require "support/mock_item"
 require "support/item_serializer"
