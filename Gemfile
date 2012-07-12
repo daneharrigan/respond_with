@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :test do
-  gem "serialize", :path => "~/Projects/Heroku/serialize"
   gem "activesupport"
   gem "builder"
   gem "rack-test"
