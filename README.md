@@ -38,5 +38,5 @@ Notice we're using a `ResourceSerializer`. This is built with the
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-[1]: https://github.com/heroku/serialize
+[1]: https://github.com/daneharrigan/serialize
 [2]: https://secure.travis-ci.org/daneharrigan/respond_with
